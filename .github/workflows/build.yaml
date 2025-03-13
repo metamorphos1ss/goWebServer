@@ -25,11 +25,19 @@ jobs:
         run: |
           go run main.go &
           
-          sleep 10
+          ps aux
+          netstat -tuln
+          
+          until curl -s http://localhost:8080/ > /dev/null; do
+            echo "Waiting for server to start..."
+            sleep 1
+          done
           
           curl -f http://localhost:8080/ || exit 1
           
           curl -f http://localhost:8080/hello || exit 1
+          
+
   build_and_release:
     needs: test
     runs-on: ubuntu-latest
