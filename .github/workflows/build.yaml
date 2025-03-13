@@ -50,6 +50,8 @@ jobs:
         run: |
           go build -o main.go
       - name: Release
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           RELEASE_TAG="v$(date +'%Y%m%d%H%M%S')"
           gh release create $RELEASE_TAG main -- title "Release $RELEASE_TAG" --notes "Build and released" --repo $GITHUB_REPOSITORY
