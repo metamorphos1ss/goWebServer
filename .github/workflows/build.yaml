@@ -25,7 +25,7 @@ jobs:
         run: |
           go run main.go &
           
-          sleep 3
+          sleep 7
           
           curl -f http://localhost:8080/ || exit 1
           
