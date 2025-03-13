@@ -51,6 +51,6 @@ jobs:
           go build -o main.go
       - name: Release
         run: |
-          RELEASE_TAG="v$(date + '%Y%m%d%H%M%S')"
+          RELEASE_TAG="v$(date +'%Y%m%d%H%M%S')"
           gh release create $RELEASE_TAG main -- title "Release $RELEASE_TAG" --notes "Build and released" --repo $GITHUB_REPOSITORY
           gh release upload $RELEASE_TAG main --repo $GITHUB_REPOSITORY
