@@ -1,8 +1,0 @@
-name: test workflow
-on: workflow_dispatch
-jobs:
-    log:
-        runs-on: ubuntu-latest
-        steps:
-            - name: log to cons
-              run: echo heyo github
