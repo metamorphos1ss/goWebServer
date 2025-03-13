@@ -31,6 +31,7 @@ jobs:
           
           curl -f https://localhost:8080/hello || exit 1
   build_and_release:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Build
