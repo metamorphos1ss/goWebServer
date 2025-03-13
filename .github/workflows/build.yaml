@@ -48,7 +48,7 @@ jobs:
 
       - name: Build
         run: |
-          go build -o main.go
+          go build -o main main.go
       - name: Release
         env:
           GH_TOKEN: ${{ github.token }}
